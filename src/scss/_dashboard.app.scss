@@ -1,0 +1,98 @@
+$app-img-size: 28;
+$app-img-depth: 4;
+$app-max-height: $app-size * 32 / $app-img-size;
+$app-depth: $app-size * $app-img-depth / $app-img-size;
+$msg-counter-size: 20px;
+
+.app-container {
+    padding: $distance-smer $distance-sm;
+}
+
+    .app {
+        float: left;
+        width: 25%;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+        .app-icon {
+            display: block;
+            width: $app-size;
+            margin: 0 auto;
+            margin-bottom: 5px;
+            position: relative;
+
+            &:active {
+                .app-img-content {
+                    margin-top: $app-depth;
+                }
+
+                .app-img-bg {
+                    background-position-y: -$app-max-height;
+                    margin-top: $app-depth;
+                    height: $app-size;
+                }
+            }
+        }
+
+            .app-msg-counter {
+                position: absolute;
+                overflow: hidden;
+                right: -$msg-counter-size / 2 + 2;
+                top: -$msg-counter-size / 2 + 2;
+                width: $msg-counter-size;
+                height: $msg-counter-size;
+                padding-top: 1px;
+                z-index: 10;
+                font-size: $font-size-smer;
+                color: $clr-text;
+            }
+
+            .app-img-container {
+                width: $app-size;
+                height: $app-max-height;
+                position: relative;
+
+                .img {
+                    @include nearest-neighbor;
+                    width: $app-size;
+                }
+            }
+
+                .app-img-content {
+                    height: $app-size;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 10;
+                    background: url('../assets/app-icon-all.png');
+                    background-size: 400%; // image has 4 icons in a line
+                }
+
+                .app-img-bg {
+                    height: $app-max-height;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background: url('../assets/app-button.png');
+                    background-size: 400%;
+
+                    &.light {
+                        background-position-x: 0;
+                    }
+
+                    &.medium {
+                        background-position-x: -$app-size;
+                    }
+
+                    &.dark {
+                        background-position-x: -$app-size * 2;
+                    }
+                }
+
+        .app-name {
+            color: $clr-text-lightest;
+            font-size: 0.8rem;
+            @include text-shadow;
+        }

@@ -1,0 +1,101 @@
+#system-status {
+    position: relative;
+    height: $system-status-height;
+    z-index: 20;
+    color: $clr-text-lightest;
+    font-size: $font-size-sm;
+    @include text-shadow;
+
+    .status-theme-light & {
+        color: $clr-text;
+        @include text-shadow-light;
+
+        #system-status-signal .signal {
+            background: rgba($clr-text, 0.4);
+
+            &.on {
+                background: $clr-text;
+            }
+        }
+    }
+
+    .status-theme-dark & {
+        color: $clr-text-lighter;
+        @include text-shadow-dark;
+
+        #system-status-signal .signal {
+            background: rgba($clr-text-lighter, 0.4);
+
+            &.on {
+                background: $clr-text-lighter;
+            }
+        }
+    }
+}
+
+    %system-status-content {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+
+    .system-status-content {
+        @extend %system-status-content;
+    }
+
+    #system-status-left {
+        padding-left: $distance-sm;
+    }
+
+        #system-status-signal {
+            display: inline-block;
+
+            .signal {
+                display: inline-block;
+                width: 3px;
+                margin-right: 1px;
+                border-radius: 2px;
+                background: rgba($clr-text-lightest, 0.4);
+
+                &.on {
+                    background: $clr-text-lightest;
+                }
+            }
+
+            .signal-1 {
+                height: 4px;
+            }
+            .signal-2 {
+                height: 6px;
+            }
+            .signal-3 {
+                height: 8px;
+            }
+            .signal-4 {
+                height: 10px;
+            }
+        }
+
+        #system-status-connection {
+            display: inline-block;
+            margin: 0 3px;
+        }
+
+    #system-status-center {
+        text-align: center;
+    }
+
+    #system-status-right {
+        text-align: right;
+        padding-right: $distance-sm;
+    }
+
+@media (max-width: 480px) {
+    #system-status {
+        display: none;
+    }
+}

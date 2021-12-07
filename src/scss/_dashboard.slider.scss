@@ -1,0 +1,50 @@
+$slider-control-radius: 4px;
+
+.slider {
+    position: absolute;
+    top: $system-status-height;
+    bottom: $out-app-bottom-height;
+    left: 0;
+    width: 98.4%;
+    margin: 0 0.8%;
+}
+
+    .slider-page-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        overflow: hidden;
+    }
+
+        .slider-page {
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            flex-shrink: 0;
+            padding: 0 $distance-smer;
+        }
+
+    .slider-control {
+        position: absolute;
+        left: 0;
+        bottom: 20px;
+        width: 100%;
+        height: $slider-control-radius * 2;
+        text-align: center;
+    }
+
+        .slider-control-btn {
+            display: inline-block;
+            width: $slider-control-radius * 2;
+            height: $slider-control-radius * 2;
+            border-radius: $slider-control-radius;
+            background-color: $clr-bg-lighter;
+            margin: 0 $distance-smer;
+
+            &.selected {
+                background-color: $clr-primary;
+            }
+        }

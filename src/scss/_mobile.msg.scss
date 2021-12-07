@@ -1,0 +1,110 @@
+.msg-time {
+    margin: 10px 5px;
+
+    font-size: $font-size-sm;
+
+    text-align: center;
+}
+
+.msg-row {
+    @include clearfix;
+    width: 100%;
+    margin-bottom: 10px;
+
+    p {
+        margin: 0;
+    }
+}
+
+.msg-xianzhe {
+    margin-bottom: $distance-sm;
+
+    & + .msg-xianzhe {
+        margin-top: -8px;
+    }
+}
+
+.msg-audience {
+    margin-bottom: $distance-sm;
+
+    & + .msg-audience {
+        margin-top: -8px;
+    }
+}
+
+    .msg {
+        display: inline-block;
+        position: relative;
+
+        padding: 10px 15px;
+        min-height: 36px;
+        max-width: 75%;
+        overflow: hidden;
+        word-wrap: break-word;
+
+        font-size: $font-size-basic;
+        line-height: 20px;
+        @include nearest-neighbor;
+
+        // TODO: not working with image background
+        // transition: width .12s ease-out, height .12s ease-out;
+        // transform: translate3d(0, 0, 0);
+
+        img {
+            margin: 8px 0;
+            image-rendering: auto;
+        }
+
+        .dot {
+            position: relative;
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: $clr-text;
+            border-radius: 50%;
+            transform-origin: 50% 50%;
+            animation: dotZoomIn 1.4s infinite;
+
+            &:first-child {
+                animation-delay: -0.32s;
+            }
+
+            &:nth-child(2) {
+                animation-delay: -0.16s;
+            }
+
+            & + .dot {
+                margin-left: 5px;
+            }
+        }
+    }
+
+    .msg-audience {
+        text-align: right;
+        color: $clr-text-dark;
+
+            .msg {
+                text-align: left;
+            }
+    }
+
+.wechat-pay-img {
+    width: 200px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+    .pay-with-zhifubao {
+        background-image: url('../assets/pay-zhifubao.png');
+    }
+
+    .pay-with-wechat {
+        background-image: url('../assets/pay-wechat.png');
+    }
+
+@media (max-width: 480px) {
+    .msg {
+        font-size: $font-size-lg;
+    }
+}
