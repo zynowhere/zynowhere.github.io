@@ -32,7 +32,7 @@
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^5.3.0",
     "sass-loader": "^7.1.0",
-    "style-loader": "^0.22.1",
+    "style-loader": "^0.23.0",
     "sunglass": "1.0.0",
     "url-loader": "^1.0.1",
     "webpack": "^4.17.1",
